@@ -19,8 +19,10 @@ bot.on("message", (msg) => {
   bot.sendMessage(msg.chat.id, `Halo ${msg.from.first_name}!`);
 });
 
-// Start server
-app.listen(10000, () => {
-  console.log("Bot running");
+// Start server (WAJIB pakai PORT dari Railway)
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, () => {
+  console.log("Bot running on port " + PORT);
   bot.setWebHook(`${process.env.WEBHOOK_URL}/webhook/${TOKEN}`);
 });
